@@ -1,0 +1,92 @@
+<!--div class="form-outline mb-4">
+  <label class="form-label">Search</label>
+  <input type="text" class="form-control" id="search" [(ngModel)]="searchvalue">
+  
+</div-->
+<div class="row">
+  <!--section class="vh-100"-->
+  <div class="col-sm-1"></div>
+  <div class="col-sm-1">
+  <div [hidden]="submitted" style="width: 1000px;">
+    <section class="vh-100">
+    <div class="container-fluid h-custom">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col-md-9 col-lg-6 col-xl-5">
+          <img src="assets/online_cart.jfif"
+            class="img-fluid" alt="Sample image">
+        </div>
+        <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
+          <form>
+          
+  
+            
+  
+            <!-- Email input -->
+            <div class="form-outline mb-4">
+              <input type="text"  class="form-control form-control-lg"
+                placeholder="Enter username" id="username" name="username" [(ngModel)]="username" />
+              <label class="form-label" for="form3Example3">User name</label>
+            </div>
+  
+            <!-- Password input -->
+            <div class="form-outline mb-3">
+              <input type="password"  class="form-control form-control-lg"
+                placeholder="Enter password" id="password" name="password" [(ngModel)]="password" />
+              <label class="form-label" for="form3Example4">Phone number</label>
+            </div>
+  
+           
+  
+            <div class="text-center text-lg-start mt-4 pt-2">
+              <button type="button" (click)="goTopage()" class="btn btn-primary btn-lg"
+                style="padding-left: 2.5rem; padding-right: 2.5rem;">Login</button>
+              
+            </div>
+  
+          </form>
+        </div>
+      </div>
+    </div>
+     </section>
+     <div class="col-sm-1"></div>
+    </div>
+  </div>
+  <!--/section-->
+</div>
+<!--second row-->
+<div class="row">
+  <div [hidden]="!submitted">
+ <table  class="table">
+    <thead class="thead-dark">
+        <tr>
+            <th>Card user</th>
+            <th>Card Email</th>
+            <th>Card Phone</th>
+            <th>Card Address</th>
+            <th>Card Date_Time</th>
+            <th>Card Branch</th>
+            <th>Card User Name</th>
+            <th>Card new_Number</th>
+            <th>Card Expaire</th>
+            <th>Card Cvv</th>
+            <th>Action</th>                  
+        </tr>
+    </thead>
+    <tbody>
+         <tr *ngFor="let card of cards | searchfilter:searchvalue">
+            <td>{{card.card_user}}</td>
+            <td>{{card.card_email}}</td>
+            <td>{{card.card_phone}}</td>
+            <td>{{card.card_address}}</td>
+            <td>{{card.card_date_time}}</td>
+            <td>{{card.card_branch}}</td>
+            <td>{{card.card_user_name}}</td>
+            <td>{{card.card_new_number}}</td>
+            <td>{{card.card_expaire}}</td>
+            <td>{{card.card_cvv}}</td>
+          </tr> 
+    </tbody><br>
+</table>
+ <button (click)="addStudentForm()" class='btn btn-primary'>Back Page</button>
+</div>
+</div>

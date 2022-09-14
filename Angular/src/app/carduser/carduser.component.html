@@ -1,0 +1,149 @@
+
+<div class="panel panel-default">
+  <div class="panel-heading">
+      <h1 style="text-align: center">Card User</h1><br>
+      <div class="row" [hidden]="!deleteMessage">
+           
+                <div class="col-sm-4"></div>
+                <div class="col-sm-4">
+                        <div class="alert alert-info alert-dismissible">
+                                <button type="button" class="close" data-dismiss="alert">&times;</button>
+                                <strong>card Data Deleted</strong>
+                        </div>
+                </div>
+                <div class="col-sm-4"></div>
+        </div>           
+    </div>
+
+  
+  <div class="panel-body">
+      <table  class="table table-hover table-sm" datatable [dtOptions]="dtOptions"
+      [dtTrigger]="dtTrigger">
+          <thead class="thead-light">
+              <tr>
+                  <th>Card user</th>
+                  <th>Card Email</th>
+                  <th>Card Phone</th>
+                  <th>Card Address</th>
+                  <th>Card Date_Time</th>
+                  <th>Card Branch</th>
+                  <th>Card User Name</th>
+                  <th>Card new_Number</th>
+                  <th>Card Expaire</th>
+                  <th>Card Cvv</th>
+                  <th>Action</th>                  
+                  
+              </tr>
+          </thead>
+          <tbody>
+               <tr *ngFor="let card of cards ">
+                  <td>{{card.card_user}}</td>
+                  <td>{{card.card_email}}</td>
+                  <td>{{card.card_phone}}</td>
+                  <td>{{card.card_address}}</td>
+                  <td>{{card.card_date_time}}</td>
+                  <td>{{card.card_branch}}</td>
+                  <td>{{card.card_user_name}}</td>
+                  <td>{{card.card_new_number}}</td>
+                  <td>{{card.card_expaire}}</td>
+                  <td>{{card.card_cvv}}</td>
+
+                  <td><button (click)="deleteCard(card.card_id)" class='btn btn-primary'><i class="fa fa-futboll-0">Delete</i></button>&nbsp;
+                    <button (click)="updateCard(card.card_id)" class='btn btn-info'
+                    data-toggle="modal" data-target="#myModal">Update</button>
+                  </td>
+                </tr> 
+          </tbody><br>
+      </table>
+  </div>
+</div> 
+
+<div class="modal" id="myModal">
+        <div class="modal-dialog">
+          <div class="modal-content">
+                <form [formGroup]="cardupdateform" #updstu (ngSubmit)="updateStu(updstu)">
+             
+            <div class="modal-header">
+              <h4 class="modal-title" style="text-align: center">Update Card</h4>
+              
+            </div>
+            
+            
+            <div class="modal-body" *ngFor="let card of cardlist " >
+                <div [hidden]="isupdated">
+
+                    <input type="hidden" class="form-control"  formControlName="card_id" [(ngModel)]="card.card_id">
+                            <div class="form-group">
+                                <label for="name">card User Name</label>
+                                <input type="text" class="form-control"  formControlName="card_user" [(ngModel)]="card.card_user"  >
+                            </div>
+                    
+                            <div class="form-group">
+                                <label for="name">card Email</label>
+                                <input type="email" class="form-control" formControlName="card_email" [(ngModel)]="card.card_email">
+                            </div>
+
+                            <div class="form-group">
+                              <label for="name">card User phone</label>
+                              <input type="tel" class="form-control"  formControlName="card_phone" [(ngModel)]="card.card_phone"  >
+                          </div> 
+
+                          <div class="form-group">
+                            <label for="name">card User Address</label>
+                            <input type="text" class="form-control"  formControlName="card_address" [(ngModel)]="card.card_address"  >
+                        </div>
+
+                        <div class="form-group">
+                          <label for="name">card User Date_Time</label>
+                          <input type="datetime" class="form-control"  formControlName="card_date_time" [(ngModel)]="card.card_date_time"  >
+                      </div>
+                    
+                            <div class="form-group">
+                                <label for="name">Select Bank Branch</label>
+                                  <select class="form-control" formControlName="card_branch" required>                                   
+                                    <option value="SBI" [selected]="'SBI' == card.card_branch">SBI</option>
+                                    <option value="AXIX" [selected]="'AXIX' == card.card_branch">AXIS</option>
+                                    <option value="PNB" [selected]="'PNB' == card.card_branch" >PNB</option>
+                                    <option value="SBI" [selected]="'SBI' == card.card_branch">RBL</option>
+                                  </select>                               
+                            </div>       
+                          
+                            <div class="form-group">
+                              <label for="name">card User Name</label>
+                              <input type="text" class="form-control"  formControlName="card_user_name" [(ngModel)]="card.card_user_name"  >
+                          </div>
+
+                          <div class="form-group">
+                            <label for="name">card User Card_number</label>
+                            <input type="text" class="form-control"  formControlName="card_new_number" [(ngModel)]="card.card_new_number"  >
+                        </div>
+
+                        <div class="form-group">
+                          <label for="name">card User Expaire MM/YY</label>
+                          <input type="text" class="form-control"  formControlName="card_expaire" [(ngModel)]="card.card_expaire"  >
+                      </div>
+
+                      <div class="form-group">
+                        <label for="name">card User cvv</label>
+                        <input type="text" class="form-control"  formControlName="card_cvv" [(ngModel)]="card.card_cvv">
+                    </div>
+
+                  </div>  
+                  <div [hidden]="!isupdated">
+                      <h4>Card Detail Updated!</h4>
+                  </div>        
+                    
+            </div>
+            
+          
+            <div class="modal-footer" >
+              <button type="submit" class="btn btn-success" [hidden]="isupdated">Update</button>
+              <button type="button" class="btn btn-danger" data-dismiss="modal" (click)="changeisUpdate()">Close</button>
+            </div>
+            
+        </form>
+          </div>
+        </div>
+</div>
+    
+   

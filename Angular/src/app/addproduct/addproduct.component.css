@@ -1,0 +1,86 @@
+body {
+    font-family: Arial;
+    color: white;
+  }
+  
+  .split {
+    height: 100%;
+    width: 50%;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    overflow-x: hidden;
+    padding-top: 20px;
+  }
+  
+  .left {
+    left: 0;
+    background-color: #111;
+  }
+  
+  .right {
+    right: 0;
+    background-color: rgb(3, 95, 95);
+   /*background-image: ("./assets/ice-cream4.jpg");*/
+   
+  }
+  
+.centered {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+  }
+  
+  .centered img {
+    width: 150px;
+    border-radius: 50%;
+  }
+  .block {
+    display: block;
+    width: 100%;
+    border: none;
+    background-color: #04AA6D;
+    color: white;
+    padding: 11px 28px;
+    font-size: 16px;
+    cursor: pointer;
+    text-align: center;
+  }
+  
+  .block:hover {
+    background-color: #ddd;
+    color: black;
+  }
+  section{
+    /*border:10px solid gray;*/
+    height: 90vh;
+    
+    position:relative;
+  }
+  
+  .container_center{
+	/*border:10px solid gray;*/
+	max-width:700px;
+	width: 100%;
+  background-color: rgb(24, 201, 207);
+  color: #fff;
+  opacity: .5;
+
+	height: 50vh;;
+	display: flex;
+	align-items:center;
+	justify-content:center;
+	
+	position:absolute;
+	right: 0;
+	Left: 0;
+	top: 0;
+	bottom: 0;
+	margin: auto;
+}
+
+ 
+
+ 

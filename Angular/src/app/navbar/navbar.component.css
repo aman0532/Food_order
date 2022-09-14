@@ -1,0 +1,11 @@
+.button-solid {
+    border: none;
+    align-items: center;
+    height: 2.7em;
+  display: flex;
+  justify-content: center;
+}
+button-solid:focus {
+    border: none;
+    outline: none;
+}

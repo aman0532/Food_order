@@ -1,0 +1,176 @@
+<section class="p-4 p-md-5" style="
+    background-image: url(https://img.freepik.com/free-photo/blue-smooth-wall-textured-background_53876-106133.jpg?w=740&t=st=1659892367~exp=1659892967~hmac=63453cf2577b21db9c2f83d35039e1d69d3399d161298d95a2eb45509a20a198);
+  ">
+
+  <div class="row d-flex justify-content-center">
+    <div class="col-md-10 col-lg-8 col-xl-5">
+      <div class="card rounded-3">
+        <div class="card-body p-4">
+          <div class="text-center mb-4">
+            <h3>ONLINE FOOD ORDER</h3>
+            <h6>Payment</h6>
+          </div>
+          <div [hidden]="submitted" style="width: 400px;">
+           <form [formGroup]="cardsaveform" #savecard (ngSubmit)="saveCard(saveCard)">
+             <p class="fw-bold mb-4 pb-2">User Details:</p>
+            
+          
+
+             <div class="d-flex flex-row align-items-center mb-4 pb-1">
+              <img class="img-fluid" src="https://icons.getbootstrap.com/assets/icons/person-circle.svg" />
+              <div class="flex-fill mx-3" aria-required="true">
+                <label class="form-label" for="formControlLgXc">User name</label>  
+               
+                <div class="form-outline">
+
+                  <div class="form-group">
+                  <input type="text" class="form-control " formControlName="card_user" data-toggle="tooltip" 
+                     data-placement="right" title="Enter user Name"/>
+                     <div class="alert alert-danger" *ngIf = "(CardUser.touched) && (CardUser.invalid)" 
+                    style="margin-top: 5px;">
+                  <span *ngIf="CardUser.errors.required">Card user name Required</span> 
+                  <span *ngIf = "CardUser.errors.minlength"> 
+                    MinLength Error 
+                </span>                             
+                </div>                  
+                </div>
+                </div>
+              </div>
+             </div>
+
+            <div class="d-flex flex-row align-items-center mb-4 pb-1">
+              <img class="img-fluid" src="https://icons.getbootstrap.com/assets/icons/envelope-fill.svg" />
+              <div class="flex-fill mx-3">
+                <label class="form-label" for="formControlLgXc">User Email</label>  
+                <div class="form-group">
+                  <input   type="email" pattern=".+@gmail\.com"
+                    class="form-control"  formControlName="card_email" data-toggle="tooltip" 
+                  data-placement="right" title="GOOGLE@GMAIL.COM" />
+                  <!--div class="alert alert-danger" *ngIf = "(CardEmail.touched) && (CardEmail.invalid)" 
+                  style="margin-top: 5px;">
+                    <span *ngIf="CardEmail.errors.required">Student Email is Required</span>
+                    <span *ngIf = "CardEmail.errors.email"> 
+                      Invalid Email Format 
+                  </span>                
+                  </div-->
+                </div>
+              </div> 
+            </div>
+
+
+             <div class="d-flex flex-row align-items-center mb-4 pb-1">
+              <img class="img-fluid" src="https://icons.getbootstrap.com/assets/icons/phone.svg" />
+              <div class="flex-fill mx-3">
+                <label class="form-label" for="formControlLgXc">User Phone</label>  
+                <div class="form-group">
+                  <input type="tel"  class="form-control" formControlName="card_phone" data-toggle="tooltip" 
+                  data-placement="right" title="90-6393214792" placeholder="6393214792" />
+                  <!--div class="alert alert-danger" *ngIf = "(CardPhone.touched) && (CardPhone.invalid)" 
+                  style="margin-top: 5px;">
+                    <span *ngIf="CardPhone.errors.required">Student Email is Required</span>
+                                
+                  </div-->
+                </div>
+               </div>
+              </div>
+
+           <div class="d-flex flex-row align-items-center mb-4 pb-1">
+              <img class="img-fluid" src="https://icons.getbootstrap.com/assets/icons/house-door.svg" />
+              <div class="flex-fill mx-3">
+                <label class="form-label" for="formControlLgXc">User Address</label>  
+                <div class="form-group">
+                  <input type="text" class="form-control"  formControlName="card_address" data-toggle="tooltip" 
+                  data-placement="right" title="userAddress" />
+                 
+                </div>
+              </div>
+              
+            </div>
+
+           <div class="d-flex flex-row align-items-center mb-4 pb-1">
+              <img class="img-fluid" src="https://icons.getbootstrap.com/assets/icons/calendar.svg" />
+              <div class="flex-fill mx-3">
+                <label class="form-label" for="formControlLgXc">User Date_time</label>  
+                <div class="form-group">
+                  <input type="datetime-local"  class="form-control"  formControlName="card_date_time" data-toggle="tooltip" 
+                  data-placement="right" title="Enter Student Name"/>
+                  
+                  
+                </div>
+              </div>
+              
+            </div>
+         
+
+            <div class="d-flex flex-row align-items-center mb-4 pb-1">
+              <img class="img-fluid" src="https://icons.getbootstrap.com/assets/icons/credit-card-2-back.svg" />
+              <div class="flex-fill mx-3">
+                <label class="form-label" for="formControlLgXc">CARD Comapny</label>  
+                <div class="form-group">
+                 
+                  <select class="form-control" formControlName="card_branch" data-toggle="tooltip" 
+                  data-placement="right" title="Select Student Branch">
+                <option value="null">--Select Branch--</option>
+              <option value="SBI">SBI</option>
+              <option value="PNB">PNB</option>
+              <option value="AXIS">AXIS</option>
+              <option value="RBL">RBL</option>
+            </select>
+       
+                 
+                </div>
+              </div>
+        
+            </div>
+
+         
+
+            <p class="fw-bold mb-4">Add new card:</p>
+            <label class="form-label" for="formControlLgXsd">Cardholder's Name</label>
+            <div class="form-group">
+              <input type="text"  class="form-control form-control-lg"  formControlName="card_user_name" data-toggle="tooltip" 
+              data-placement="right" title="Enter Student Name"/>
+            
+          
+            </div>
+
+            <div class="row mb-4">
+              <div class="col-7">
+                <label class="form-label" for="formControlLgXM">Card Number</label>
+                <div class="form-group">
+                 
+                  <input type="text"   class="ccFormatMonitor" formControlName="card_new_number" data-toggle="tooltip" 
+                  data-placement="right"  placeholder="1234 5678 1234 5678" />
+                 
+                </div>
+              </div>
+              <div class="col-3">
+                <label class="form-label" for="formControlLgExpk">Expire</label>
+                <div class="form-group">
+                  <input  type="text"
+                   class="form-control"  formControlName="card_expaire" data-toggle="tooltip" 
+                  data-placement="right"  placeholder="MM/YY" title="MM/YY"/>
+                    
+                  
+                </div>
+              </div>
+              <div class="col-2"> 
+                <label class="form-label" for="formControlLgcvv">Cvv</label>
+                <div class="form-group">
+                  <input type="password" class="form-control"    formControlName="card_cvv" data-toggle="tooltip" 
+                  data-placement="right" placeholder="Cvv" title="CvvNumber"/>
+               
+                </div>
+               </div>
+            </div>
+
+            <button type="submit" class="btn btn-success btn-lg btn-block">Add card</button>
+  
+           </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+</section>

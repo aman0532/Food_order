@@ -1,0 +1,29 @@
+create database food_order;
+use food_order ;
+DROP TABLE IF EXISTS `card`;
+CREATE TABLE IF NOT EXISTS `card` (
+  `card_id` int(11) NOT NULL AUTO_INCREMENT,
+  `card_user` varchar(255) DEFAULT NULL,
+  `card_email` varchar(255) DEFAULT NULL,
+  `card_phone` varchar(20) DEFAULT NULL,
+  `card_address` varchar(255) DEFAULT NULL,
+  `card_date_time` varchar(255) DEFAULT NULL,
+  `card_branch` varchar(255) DEFAULT NULL,
+  `card_user_name` varchar(255) DEFAULT NULL,
+  `card_new_number` varchar(255) DEFAULT NULL,
+  `card_expaire` varchar(255) DEFAULT NULL,
+  `card_cvv` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`card_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+
+CREATE TABLE food (    
+  food_Id INT,  
+  food_name varchar(50) NOT NULL,  
+  food_price int(10) NOT NULL,
+  food_total  int(10) NOT NULL,
+  INDEX par_ind (food_Id),  
+  CONSTRAINT fk_customer FOREIGN KEY (food_Id)  
+  REFERENCES customer(card_id)  
+  ON DELETE CASCADE  
+  ON UPDATE CASCADE  
+);  
